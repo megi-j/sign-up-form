@@ -1,15 +1,56 @@
 import styled from "styled-components";
-import { useForm } from "react-hook-form";
+import { useForm, SubmitHandler } from "react-hook-form";
 
+type Inputs = {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+};
 export default function FormBox() {
-  const {} = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<Inputs>();
+
+  const onSubmit: SubmitHandler<Inputs> = (data) => {
+    // console.log(data);
+  };
+  console.log(errors);
   return (
-    <Form>
-      <Input type="text" placeholder="First Name" />
-      <Input type="text" placeholder="Last Name" />
-      <Input type="email" placeholder="Email Address" />
-      <Input type="password" placeholder="Password" />
-      <Button>CLAIM YOUR FREE TRIAL</Button>
+    <Form onSubmit={handleSubmit(onSubmit)}>
+      <Input
+        type="text"
+        placeholder="First Name"
+        {...register("firstName", { required: true })}
+      />
+      {errors.firstName && <p>First Name cannot be empty</p>}
+      <Input
+        type="text"
+        placeholder="Last Name"
+        {...register("lastName", { required: true })}
+      />
+      {errors.lastName && <p>Last Name cannot be empty</p>}
+      <Input
+        type="email"
+        placeholder="Email Address"
+        {...register("email", {
+          required: true,
+          pattern: {
+            value: /\S+@\S+\.\S+/,
+            message: "Looks like this is not an email",
+          },
+        })}
+      />
+      {errors.email && <p>{errors.email.message}</p>}
+      <Input
+        type="password"
+        placeholder="Password"
+        {...register("password", { required: true })}
+      />
+      {errors.password && <p>Password cannot be empty</p>}
+      <Button type="submit">CLAIM YOUR FREE TRIAL</Button>
       <Agreement>
         By clicking the button, you are agreeing to our{" "}
         <Terms>Terms and Services</Terms>{" "}
