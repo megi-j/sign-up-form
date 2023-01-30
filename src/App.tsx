@@ -1,6 +1,7 @@
 import bg from "./images/bg-intro-desktop.png";
 import styled, { createGlobalStyle } from "styled-components";
 import { Helmet } from "react-helmet";
+import FormBox from "./FormBox";
 const GlobalStyles = createGlobalStyle`
   *{
     margin: 0;
@@ -37,6 +38,7 @@ function App() {
             then $20/mo. thereafter
           </span>
         </FreePeriodBox>
+        <FormBox></FormBox>
       </FormSection>
     </Container>
   );
@@ -77,9 +79,7 @@ const Text = styled.p`
   font-family: "Poppins";
 `;
 const FormSection = styled.section`
-  width: 45%;
-  height: 50px;
-  border: 2px solid black;
+  width: 49%;
 `;
 const FreePeriodBox = styled.div`
   max-width: 540px;
@@ -93,4 +93,5 @@ const FreePeriodBox = styled.div`
   color: #ffffff;
   box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.14688);
   border-radius: 10px;
+  margin-bottom: 24px;
 `;
