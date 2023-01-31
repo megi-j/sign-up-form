@@ -2,6 +2,7 @@ import bg from "./images/bg-intro-desktop.png";
 import styled, { createGlobalStyle } from "styled-components";
 import { Helmet } from "react-helmet";
 import FormBox from "./FormBox";
+import mobBg from "./images/bg-intro-mobile.png";
 const GlobalStyles = createGlobalStyle`
   *{
     margin: 0;
@@ -49,7 +50,6 @@ export default App;
 const Container = styled.div`
   max-width: 1440px;
   width: 100%;
-  height: 100vh;
   margin: 0 auto;
   background-color: #ff7979;
   background-image: url(${bg});
@@ -59,9 +59,19 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (max-width: 375px) {
+    background-image: url(${mobBg});
+    flex-direction: column;
+    align-content: space-between;
+    justify-content: center;
+    padding: 88px 24px 68px 24px;
+  }
 `;
 const TitleSection = styled.section`
   width: 45%;
+  @media (max-width: 375px) {
+    width: 100%;
+  }
 `;
 const Title = styled.h1`
   font-size: 50px;
@@ -70,6 +80,13 @@ const Title = styled.h1`
   color: #ffffff;
   font-family: "Poppins";
   margin-bottom: 11px;
+  letter-spacing: -0.520833px;
+  @media (max-width: 375px) {
+    font-size: 28px;
+    line-height: 36px;
+    letter-spacing: -0.291667px;
+    text-align: center;
+  }
 `;
 const Text = styled.p`
   font-weight: 500;
@@ -77,12 +94,20 @@ const Text = styled.p`
   line-height: 26px;
   color: #ffffff;
   font-family: "Poppins";
+  @media (max-width: 375px) {
+    text-align: center;
+    margin-bottom: 64px;
+  }
 `;
 const FormSection = styled.section`
   width: 49%;
+  @media (max-width: 375px) {
+    width: 100%;
+  }
 `;
 const FreePeriodBox = styled.div`
   max-width: 540px;
+  width: 100%;
   height: 60px;
   background-color: #5e54a4;
   display: flex;
@@ -94,4 +119,10 @@ const FreePeriodBox = styled.div`
   box-shadow: 0px 8px 0px rgba(0, 0, 0, 0.14688);
   border-radius: 10px;
   margin-bottom: 24px;
+  @media (max-width: 375px) {
+    max-width: 327px;
+    width: 100%;
+    height: 88px;
+    flex-direction: column;
+  }
 `;

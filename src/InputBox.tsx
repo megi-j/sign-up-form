@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-interface InputBoxProps {
+type InputBoxProps = {
   name: any;
-}
+};
 export const InputBox = styled.div<InputBoxProps>`
   width: 100%;
   height: 56px;

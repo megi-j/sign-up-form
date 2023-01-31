@@ -10,7 +10,6 @@ type Inputs = {
   password: string;
 };
 export default function FormBox() {
-  // const [focused, setFocused] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -46,7 +45,7 @@ export default function FormBox() {
       <InputBox name={errors.email}>
         <Input
           type="email"
-          placeholder="Email Address"
+          placeholder={errors.email ? "email@example/com" : "Email Address"}
           {...register("email", {
             required: true,
             pattern: {
@@ -89,6 +88,9 @@ const Form = styled.form`
   justify-content: space-between;
   flex-direction: column;
   align-content: space-between;
+  @media (max-width: 375px) {
+    padding: 24px;
+  }
 `;
 
 const Input = styled.input`
@@ -109,6 +111,7 @@ const Input = styled.input`
     outline: none;
   }
 `;
+
 const Button = styled.button`
   width: 100%;
   height: 56px;
@@ -133,9 +136,15 @@ const Agreement = styled.p`
   font-size: 11px;
   line-height: 26px;
   color: #bab7d4;
+  @media (max-width: 375px) {
+    text-align: center;
+  }
 `;
 const Terms = styled.span`
   color: #ff7979;
+  @media (max-width: 375px) {
+    text-align: center;
+  }
 `;
 const ErrorText = styled.p`
   font-family: "Poppins";
