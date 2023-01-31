@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/sign-form/static/css/main.31d6cfe0.css",
+    "main.js": "/sign-form/static/js/main.a5aea03f.js",
+    "static/media/bg-intro-desktop.png": "/sign-form/static/media/bg-intro-desktop.059183eea52640c5068d.png",
+    "index.html": "/sign-form/index.html",
+    "static/media/icon-error.svg": "/sign-form/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
+    "main.a5aea03f.js.map": "/sign-form/static/js/main.a5aea03f.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31d6cfe0.css",
+    "static/js/main.a5aea03f.js"
+  ]
+}
