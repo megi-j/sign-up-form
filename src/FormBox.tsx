@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { useForm, SubmitHandler } from "react-hook-form";
-
+import errorIcon from "./images/icon-error.svg";
+import { InputBox } from "./InputBox";
+import { useEffect } from "react";
 type Inputs = {
   firstName: string;
   lastName: string;
@@ -8,6 +10,7 @@ type Inputs = {
   password: string;
 };
 export default function FormBox() {
+  // const [focused, setFocused] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
@@ -15,41 +18,57 @@ export default function FormBox() {
   } = useForm<Inputs>();
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    // console.log(data);
+    console.log(data);
   };
   console.log(errors);
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-      <Input
-        type="text"
-        placeholder="First Name"
-        {...register("firstName", { required: true })}
-      />
-      {errors.firstName && <p>First Name cannot be empty</p>}
-      <Input
-        type="text"
-        placeholder="Last Name"
-        {...register("lastName", { required: true })}
-      />
-      {errors.lastName && <p>Last Name cannot be empty</p>}
-      <Input
-        type="email"
-        placeholder="Email Address"
-        {...register("email", {
-          required: true,
-          pattern: {
-            value: /\S+@\S+\.\S+/,
-            message: "Looks like this is not an email",
-          },
-        })}
-      />
-      {errors.email && <p>{errors.email.message}</p>}
-      <Input
-        type="password"
-        placeholder="Password"
-        {...register("password", { required: true })}
-      />
-      {errors.password && <p>Password cannot be empty</p>}
+      <InputBox name={errors.firstName}>
+        <Input
+          type="text"
+          placeholder="First Name"
+          {...register("firstName", { required: true })}
+        />
+        {errors.firstName && <ErrorImg src={errorIcon} alt="error-icon" />}
+      </InputBox>
+
+      {errors.firstName && <ErrorText>First Name cannot be empty</ErrorText>}
+      <InputBox name={errors.lastName}>
+        <Input
+          type="text"
+          placeholder="Last Name"
+          {...register("lastName", { required: true })}
+        />
+        {errors.lastName && <ErrorImg src={errorIcon} alt="error-icon" />}
+      </InputBox>
+
+      {errors.lastName && <ErrorText>Last Name cannot be empty</ErrorText>}
+      <InputBox name={errors.email}>
+        <Input
+          type="email"
+          placeholder="Email Address"
+          {...register("email", {
+            required: true,
+            pattern: {
+              value: /\S+@\S+\.\S+/,
+              message: "Looks like this is not an email",
+            },
+          })}
+        />
+        {errors.email && <ErrorImg src={errorIcon} alt="error-icon" />}
+      </InputBox>
+
+      {errors.email && <ErrorText>{errors.email.message}</ErrorText>}
+      <InputBox name={errors.password}>
+        <Input
+          type="password"
+          placeholder="Password"
+          {...register("password", { required: true })}
+        />
+        {errors.password && <ErrorImg src={errorIcon} alt="error-icon" />}
+      </InputBox>
+
+      {errors.password && <ErrorText>Password cannot be empty</ErrorText>}
       <Button type="submit">CLAIM YOUR FREE TRIAL</Button>
       <Agreement>
         By clicking the button, you are agreeing to our{" "}
@@ -68,15 +87,15 @@ const Form = styled.form`
   padding: 40px;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   flex-direction: column;
   align-content: space-between;
 `;
+
 const Input = styled.input`
-  width: 100%;
-  height: 56px;
+  width: 90%;
+  height: 100%;
+  border: none;
   background: #ffffff;
-  border: 1px solid #dedede;
   border-radius: 5px;
   padding: 15px 32px;
   font-family: "Poppins";
@@ -88,7 +107,6 @@ const Input = styled.input`
   color: #3d3b48;
   &:focus {
     outline: none;
-    border: 1px solid #5e54a4;
   }
 `;
 const Button = styled.button`
@@ -118,4 +136,16 @@ const Agreement = styled.p`
 `;
 const Terms = styled.span`
   color: #ff7979;
+`;
+const ErrorText = styled.p`
+  font-family: "Poppins";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 11px;
+  text-align: right;
+  color: #ff7979;
+`;
+const ErrorImg = styled.img`
+  width: 24px;
+  height: 24px;
 `;
