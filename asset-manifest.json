@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/sign-form/static/css/main.31d6cfe0.css",
-    "main.js": "/sign-form/static/js/main.c32c9089.js",
-    "static/media/bg-intro-desktop.png": "/sign-form/static/media/bg-intro-desktop.059183eea52640c5068d.png",
-    "static/media/bg-intro-mobile.png": "/sign-form/static/media/bg-intro-mobile.02ce398270ece1769ebc.png",
-    "index.html": "/sign-form/index.html",
-    "static/media/icon-error.svg": "/sign-form/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
-    "main.c32c9089.js.map": "/sign-form/static/js/main.c32c9089.js.map"
+    "main.css": "/sign-up-form/static/css/main.31d6cfe0.css",
+    "main.js": "/sign-up-form/static/js/main.ced26557.js",
+    "static/media/bg-intro-desktop.png": "/sign-up-form/static/media/bg-intro-desktop.059183eea52640c5068d.png",
+    "static/media/bg-intro-mobile.png": "/sign-up-form/static/media/bg-intro-mobile.02ce398270ece1769ebc.png",
+    "index.html": "/sign-up-form/index.html",
+    "static/media/icon-error.svg": "/sign-up-form/static/media/icon-error.b72f792e9c900128f5c88f10a0d8d4b7.svg",
+    "main.ced26557.js.map": "/sign-up-form/static/js/main.ced26557.js.map"
   },
   "entrypoints": [
     "static/css/main.31d6cfe0.css",
-    "static/js/main.c32c9089.js"
+    "static/js/main.ced26557.js"
   ]
 }
